@@ -17,3 +17,7 @@ Checks if the Web Widget has loaded and if so, removes unwanted fields.
 Adjust your HTML so that it the `<script>` in `script.html` is included in the `body` tag.
 
 Hope that your Zendesk integration goes smooth :fingers-crossed:
+
+## Mentions
+
+This solution was inspired by [Zendesk-Customizations](https://github.com/Ajhad1/Zendesk-Customizations/tree/main)
