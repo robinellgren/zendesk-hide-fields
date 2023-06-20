@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  const fieldsToHide = ["name", "email", "subject", "description"];
+  function hideZendeskFields() {
+    var zendeskIframe = document.getElementById("webWidget").contentDocument;
+
+    var fields = zendeskIframe.querySelectorAll("input, textarea");
+    // description is of type textarea
+
+    fields.forEach((field) => {
+      if (fieldsToHide.includes(field.name)) {
+        field.parentElement.style.display = "none"; // hides the parent div (thus including the label!)
+      }
+    });
+  }
+
+  const checkZendeskLoaded = setInterval(function () {
+    if (document.getElementById("webWidget")) {
+      hideZendeskFields();
+      clearInterval(checkZendeskLoaded);
+    }
+  }, 100); //check every 100 ms
+</script>
