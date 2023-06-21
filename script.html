@@ -15,7 +15,11 @@
   // Instead of setInterval, zE('webWidget:on', 'open', callback) can be used
   // however, that won't get triggered if your Zendesk form is shown on page load
   const checkZendeskLoaded = setInterval(function () {
-    if (document.getElementById("webWidget")) {
+    if (
+      document
+        .getElementById("webWidget")
+        ?.contentDocument?.querySelectorAll("input")?.length > 0
+    ) {
       hideZendeskFields();
       clearInterval(checkZendeskLoaded);
     }
